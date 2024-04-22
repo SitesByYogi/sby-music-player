@@ -1,40 +1,58 @@
 jQuery(document).ready(function ($) {
-    // Add custom functionality here
+    var currentAudio = null; // Keep track of the currently playing audio element
 
-    // Example: Toggle play/pause button text
-    $('.music-player audio').on('play', function () {
-        $('.play-pause-btn').text('Pause');
+    // Play/pause control for each audio player
+    $('.music-player audio').each(function () {
+        $(this).on('play', function () {
+            // If there is an active audio and it's not the current one, pause it
+            if (currentAudio && currentAudio !== this) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; // Reset to start
+            }
+            currentAudio = this; // Update current audio
+        });
+
+        $(this).on('pause', function () {
+            if (currentAudio === this) {
+                currentAudio = null; // Clear the current audio when it's paused
+            }
+        });
     });
 
-    $('.music-player audio').on('pause', function () {
-        $('.play-pause-btn').text('Play');
-    });
-
-    // Example: Custom play/pause button functionality
+    // Handle play/pause with custom buttons (if required)
     $('.play-pause-btn').on('click', function () {
-        var audio = $('.music-player audio').get(0);
+        var audio = $(this).siblings('audio').get(0);
         if (audio.paused) {
-            audio.play();
+            // Pause any other playing audio and reset it
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            audio.play(); // Play the clicked audio
+            currentAudio = audio;
         } else {
-            audio.pause();
+            audio.pause(); // Pause the clicked audio
         }
     });
 });
 
 jQuery(document).ready(function ($) {
-    // Keep track of the currently playing audio element
-    var currentAudio = null;
+    var currentAudio = null; // Track the current playing audio
 
-    // Add click event handler to each audio player
-    $('.music-player audio').each(function () {
-        $(this).on('play', function () {
-            // Pause the previously playing audio
-            if (currentAudio && !currentAudio.paused && currentAudio !== this) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0; // Restart the previous audio
-            }
-            // Set the currently playing audio
-            currentAudio = this;
-        });
+    // Pause other audio when a new one plays
+    $('.music-playlist audio').on('play', function () {
+        var newAudio = this;
+        if (currentAudio && currentAudio !== newAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0; // Reset the previous track
+        }
+        currentAudio = newAudio; // Update current audio
+    });
+
+    $('.music-playlist audio').on('pause', function () {
+        if (currentAudio === this) {
+            currentAudio = null; // Clear the current audio when it's paused
+        }
     });
 });
+

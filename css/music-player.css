@@ -1,0 +1,31 @@
+.music-info {
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.music-info-item {
+    margin-bottom: 5px;
+}
+
+.music-info-item strong {
+    font-weight: bold;
+}
+
+audio {
+    width: 100%;
+}
+
+.music-playlist {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.music-track {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
