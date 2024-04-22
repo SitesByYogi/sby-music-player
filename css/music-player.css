@@ -1,0 +1,18 @@
+.music-player {
+    margin-bottom: 20px;
+}
+
+.music-player audio {
+    width: 100%;
+}
+
+.play-pause-btn {
+    cursor: pointer;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Example: Styling for play/pause button */
+.play-pause-btn:hover {
+    color: #666;
+}
