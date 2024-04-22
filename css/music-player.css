@@ -1,18 +1,22 @@
-.music-player {
+/* CSS for styling the music information display */
+.music-info {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
     margin-bottom: 20px;
 }
 
-.music-player audio {
-    width: 100%;
+.music-info-item {
+    margin-bottom: 5px;
 }
 
-.play-pause-btn {
-    cursor: pointer;
-    color: #333;
-    font-size: 16px;
+.music-info-item strong {
+    font-weight: bold;
 }
 
-/* Example: Styling for play/pause button */
-.play-pause-btn:hover {
-    color: #666;
+.music-info-item .music-title,
+.music-info-item .music-artist,
+.music-info-item .music-album {
+    margin-left: 10px;
 }

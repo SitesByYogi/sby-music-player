@@ -20,3 +20,21 @@ jQuery(document).ready(function ($) {
         }
     });
 });
+
+jQuery(document).ready(function ($) {
+    // Keep track of the currently playing audio element
+    var currentAudio = null;
+
+    // Add click event handler to each audio player
+    $('.music-player audio').each(function () {
+        $(this).on('play', function () {
+            // Pause the previously playing audio
+            if (currentAudio && !currentAudio.paused && currentAudio !== this) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; // Restart the previous audio
+            }
+            // Set the currently playing audio
+            currentAudio = this;
+        });
+    });
+});
