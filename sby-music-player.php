@@ -99,17 +99,13 @@ function music_playlist_shortcode($atts) {
             ?>
             <div class="music-track">
                 
-                <div class="music-info">
+                <div class="music-info-playlist">
                     <?php if (!empty($title)) : ?>
-                        <div class="music-info-item"><strong>Title:</strong> <?php echo esc_html($title); ?></div>
+                        <div class="music-info-item"><?php echo esc_html($title); ?> | <?php echo esc_html($artist); ?></div>
                     <?php endif; ?>
                     <audio src="<?php echo esc_url($attachment_url); ?>" controls <?php echo ($atts['autoplay'] === 'true' && $media_id === $media_ids[0]) ? 'autoplay' : ''; ?> <?php echo ($atts['loop'] === 'true') ? 'loop' : ''; ?>>
                     Your browser does not support the audio element.
                 </audio>
-                    <?php if (!empty($artist)) : ?>
-                        <div class="music-info-item"><strong>Artist:</strong> <?php echo esc_html($artist); ?></div>
-                    <?php endif; ?>
-                    
                 </div>
             </div>
             <?php

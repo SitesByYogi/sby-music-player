@@ -6,6 +6,12 @@
     margin-bottom: 20px;
 }
 
+.music-info-playlist {
+
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 .music-info-item {
     margin-bottom: 5px;
 }
@@ -20,12 +26,10 @@ audio {
 
 .music-playlist {
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
 .music-track {
     padding: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+    margin-bottom: 3px;
 }
